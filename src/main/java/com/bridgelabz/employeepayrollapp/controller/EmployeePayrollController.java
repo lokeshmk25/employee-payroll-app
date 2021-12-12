@@ -1,6 +1,8 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDto;
+import com.bridgelabz.employeepayrollapp.dto.ResponseDTO;
+import com.bridgelabz.employeepayrollapp.entity.Employee;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,24 +12,37 @@ import org.springframework.web.bind.annotation.*;
 public class EmployeePayrollController {
 
     @RequestMapping(value = {"", "/", "/get"})
-    public ResponseEntity<String> getEmployeePayrollData() {
-        return new ResponseEntity<String>("Get call success", HttpStatus.OK);
+    public ResponseEntity<ResponseDTO> getEmployeePayrollData() {
+        Employee employee=null;
+        employee=new Employee(1,new EmployeePayrollDto("lokesh",3000));
+        ResponseDTO responseDTO=new ResponseDTO("Get call Sucess",employee);
+        return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
     @GetMapping("/get/{id}")
-    public ResponseEntity<String> getEmployeePayrollData(@PathVariable int id) {
-        return new ResponseEntity<String>("Get call success for id " +id, HttpStatus.OK);
+    public ResponseEntity<ResponseDTO> getEmployeePayrollData(@PathVariable int id) {
+        Employee employee=null;
+        employee=new Employee(id,new EmployeePayrollDto("lokesh",3000));
+        ResponseDTO responseDTO=new ResponseDTO("Get call for Id Sucess",employee);
+        return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
-    @PutMapping("/create")
-    public ResponseEntity<String> setEmployeePayrollData(@RequestBody EmployeePayrollDto employeePayrollDto) {
-        return new ResponseEntity<String>("created employee payroll for " +employeePayrollDto, HttpStatus.OK);
+    @PostMapping("/create")
+    public ResponseEntity<ResponseDTO> setEmployeePayrollData(@RequestBody EmployeePayrollDto employeePayrollDto) {
+        Employee employee=null;
+        employee=new Employee(1,employeePayrollDto);
+        ResponseDTO responseDTO=new ResponseDTO("Created employee  for Id Sucess",employee);
+        return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
-    @PostMapping("/update")
-    public ResponseEntity<String> updateEmployeePayrollData(@RequestBody EmployeePayrollDto employeePayrollDto) {
-        return new ResponseEntity<String>("updated employee payroll for " +employeePayrollDto, HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ResponseDTO> updateEmployeePayrollData(@PathVariable int id,@RequestBody EmployeePayrollDto employeePayrollDto) {
+        Employee employee=null;
+        employee=new Employee(id,employeePayrollDto);
+        ResponseDTO responseDTO=new ResponseDTO("Updated employee for Id Sucess",employee);
+        return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
     @DeleteMapping("/get/{id}")
-    public ResponseEntity<String> deleteEmployeePayrollData(@PathVariable int id) {
-        return new ResponseEntity<String>("Delete call success for  id " +id, HttpStatus.OK);
+    public ResponseEntity<ResponseDTO> deleteEmployeePayrollData(@PathVariable int id) {
+        ResponseDTO responseDTO=new ResponseDTO("Updated employee for Id Sucess",id);
+        return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
 
 }
