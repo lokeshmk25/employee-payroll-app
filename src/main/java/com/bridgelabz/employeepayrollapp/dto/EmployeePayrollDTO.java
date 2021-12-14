@@ -8,6 +8,7 @@ import javax.validation.constraints.Pattern;
 
 @Data
 public class EmployeePayrollDTO {
+
     @NotNull(message = "Employee Name should not be null")
     @Pattern(regexp = "^[A-Z]{1}[a-zA-Z]{2,}",message = "Employee name is not valid")
     public String name;

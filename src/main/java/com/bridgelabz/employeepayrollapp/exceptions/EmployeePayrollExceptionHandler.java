@@ -36,8 +36,8 @@ public class EmployeePayrollExceptionHandler extends ResponseEntityExceptionHand
         return new ResponseEntity<>(body, headers, status);
     }
 
-    @ExceptionHandler(CustomException.class)
-    public ResponseEntity handleEntityNotFoundException(CustomException ex) {
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity handleEntityNotFoundException(EntityNotFoundException ex) {
         logger.error("Invalid ID");
         return new ResponseEntity("Given id is Not Found", HttpStatus.BAD_REQUEST);
     }
