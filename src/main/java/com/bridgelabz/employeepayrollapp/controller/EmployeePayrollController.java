@@ -6,6 +6,7 @@ import com.bridgelabz.employeepayrollapp.service.EmployeePayrollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,12 +27,12 @@ public class EmployeePayrollController {
     }
 
     @PostMapping("/create")
-    public String setEmployeePayrollData(@RequestBody EmployeePayrollDTO employeePayrollDto) {
+    public String setEmployeePayrollData(@Valid @RequestBody EmployeePayrollDTO employeePayrollDto) {
        return payrollService.addEmployee(employeePayrollDto);
     }
 
     @PutMapping("/update/{id}")
-    public String updateEmployee(@PathVariable int id,@RequestBody EmployeePayrollDTO employeePayrollDto) {
+    public String updateEmployee(@PathVariable int id,@Valid@RequestBody EmployeePayrollDTO employeePayrollDto) {
         return payrollService.updateEmployee(id,employeePayrollDto);
     }
 

@@ -13,10 +13,7 @@ import javax.validation.constraints.NotNull;
 public class EmployeePayroll {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
     private int id;
-    @NotNull
-
     private String name;
     private long salary;
 

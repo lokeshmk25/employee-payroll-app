@@ -11,10 +11,8 @@ import org.springframework.context.ApplicationContext;
 @Slf4j
 public class EmployeePayrollApp {
 
-
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(EmployeePayrollApp.class, args);
 		log.info("Employee Payroll started");
 	}
-
 }
