@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.OngoingStubbing;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 import java.util.ArrayList;
@@ -46,8 +47,8 @@ public class EmployeePayrollControllerTest {
 //        String expectedmessage="Employee name is not valid";
 //        EmployeePayrollDTO employeePayrollDTO = new EmployeePayrollDTO();
 //        employeePayrollDTO.setName("lokesh");
-//        employeePayrollDTO.setSalary(40000);
-//        when(employeePayrollService.addEmployee(employeePayrollDTO)).thenThrow(CustomException.class);
+//       // employeePayrollDTO.setSalary(40000);
+//        when(employeePayrollService.addEmployee(employeePayrollDTO)).thenThrow(EntityNotFoundException.class);
 //        String message = employeePayrollController.setEmployeePayrollData(employeePayrollDTO);
 //        Assertions.assertEquals(expectedmessage,message);
 //    }
