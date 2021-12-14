@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EmployeePayrollAppTests {
+class EmployeePayrollPayrollAppTests {
 
 	@Test
 	void contextLoads() {
 	}
 
 }
+//https://youtu.be/fN8VAdYfJB8
