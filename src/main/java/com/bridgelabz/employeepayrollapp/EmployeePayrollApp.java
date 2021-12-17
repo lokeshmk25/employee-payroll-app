@@ -6,7 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-
+/**
+ * Purpose - To simulate Employee payroll application
+ *
+ * @author LOKESH
+ * @version 0.0.1-SNAPSHOT
+ * @since 08-12-21
+ */
 @SpringBootApplication
 @EnableEncryptableProperties
 @Slf4j
